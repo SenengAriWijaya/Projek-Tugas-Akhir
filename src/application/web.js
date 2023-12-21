@@ -5,6 +5,7 @@ import { adminRouter } from "../route/admin-api.js";
 import { errorMiddleware } from "../middleware/error-middleware.js";
 import { publicRouter } from "../route/public-api.js";
 import { userRouter } from "../route/user-api.js";
+import { routerSensor } from "../route/sensor-api.js";
 
 dotenv.config();
 export const web = express();
@@ -13,6 +14,7 @@ web.use(express.json());
 web.use(adminRouter);
 web.use(publicRouter);
 web.use(userRouter);
+web.use(routerSensor);
 web.use(errorMiddleware);
 
 web.use(

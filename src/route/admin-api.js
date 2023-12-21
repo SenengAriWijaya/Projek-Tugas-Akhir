@@ -1,5 +1,6 @@
 import express from "express";
 import adminController from "../controller/admin-controller.js";
+import sensorController from "../controller/sensor-controller.js";
 import { authMiddleware, checkRole } from "../middleware/auth-middleware.js";
 
 const adminRouter = new express.Router();
@@ -42,9 +43,30 @@ adminRouter.put(
 );
 
 adminRouter.get(
-  "/admin/sensor",
+  "/admin/sensors",
   authMiddleware,
   checkRole("ADMIN"),
   adminController.dataSensor
 );
+
+adminRouter.put(
+  "/admin/sensors/:id",
+  // authMiddleware,
+  // checkRole("ADMIN"),
+  sensorController.updateSensorMonitoring
+);
+
+// adminRouter.post(
+//   "/admin/sensors",
+//   // authMiddleware,
+//   // checkRole("ADMIN"),
+//   sensorController.createDataSensor
+// );
+
+// adminRouter.put(
+//   "admin/sensor",
+//   // authMiddleware,
+//   // checkRole("ADMIN"),
+//   adminController.updateDataSensor
+// );
 export { adminRouter };

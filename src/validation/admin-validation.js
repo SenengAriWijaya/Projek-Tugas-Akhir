@@ -20,8 +20,8 @@ const updateValidation = Joi.object({
 
 const updateDataUserValidation = Joi.object({
   id: Joi.number().integer().positive().required(),
-  detak_jantung: Joi.number().integer().required(),
-  kelembapan_kulit: Joi.number().precision(2).required(),
+  detak_jantung: Joi.string().max(20).required(),
+  kelembapan_kulit: Joi.string().max(20).required(),
   tanggal: Joi.date().iso().required(),
 });
 

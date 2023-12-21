@@ -99,6 +99,23 @@ const dataSensor = async (req, res, next) => {
   }
 };
 
+// const updateDataSensor = async (req, res, next) => {
+//   try {
+//     // const sensorId = req.params.id;
+//     // const request = req.body;
+//     // request.id = sensorId;
+
+//     const result = await adminService.updateMonitoringSensor();
+//     res.status(200).json({
+//       status: "success",
+//       data: result,
+//       message: "data sensor update successfully",
+//     });
+//   } catch (e) {
+//     next(e);
+//   }
+// };
+
 export default {
   register,
   getData,
@@ -107,4 +124,5 @@ export default {
   list,
   updateUser,
   dataSensor,
+  // updateDataSensor,
 };

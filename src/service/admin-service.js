@@ -157,11 +157,9 @@ const updateUser = async (req) => {
 };
 
 const monitoringSensor = async () => {
-  const dataSensor = await prismaClient.sensor.findMany({
-    select: {
-      detak_jantung: true,
-      kelembapan_kulit: true,
-      tanggal: true,
+  const dataSensor = await prismaClient.save.findFirst({
+    orderBy: {
+      tanggal: "desc",
     },
   });
   return dataSensor;
